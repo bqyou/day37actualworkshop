@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+    Choose a file:
+    <input formControlName="file" type="file" (change)="onFileSelected($event)"><br>
+
+    Comments:
+    <textarea formControlName="comments"></textarea><br>
+    <button type="submit" [disabled]="isFormInvalid()" (click)="upload()">Submit</button>
+</form>
+<ul>
+    <li *ngFor="let key of keys">
+        <a [routerLink]="['/get',key.postId]">{{ key.postId }}</a>
+    </li>
+</ul> 
